@@ -8,12 +8,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UniverseLib.UI;
 using UniverseLib.Utility;
-
-#if INTEROP
+#if IL2CPP
 using Il2CppInterop.Runtime.InteropTypes.Arrays;
-#endif
-#if UNHOLLOWER
-using UnhollowerBaseLib;
 #endif
 
 #nullable enable
@@ -157,7 +153,7 @@ public class InputSystem : IHandleInput
 
             // An empty supportedDevices list means all devices are supported.
             Type supportedDeviceType = supportedDevices.GetActualType();
-#if CPP
+#if IL2CPP
             // weird hack for il2cpp, use the implicit operator and cast Il2CppStringArray to ReadOnlyArray<string>
             object[] emptyStringArray =[ new Il2CppStringArray(0) ];
             MethodInfo? op_implicit = supportedDeviceType.GetMethod("op_Implicit", BindingFlags.Static | BindingFlags.Public);

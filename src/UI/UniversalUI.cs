@@ -249,9 +249,9 @@ namespace UniverseLib.UI
 
         static AssetBundle LoadBundle(string id)
         {
-            AssetBundle bundle = AssetBundle.LoadFromMemory(ReadFully(typeof(Universe)
-                    .Assembly
-                    .GetManifestResourceStream($"UniverseLib.Resources.{id}.bundle")));
+            Assembly ass = typeof(UniversalUI).Assembly;
+            AssetBundle bundle = AssetBundle.LoadFromMemory(
+                ReadFully(ass.GetManifestResourceStream($"{ass.GetName().Name}.Resources.{id}.bundle")));
             if (bundle)
                 Universe.Log($"Loaded {id} bundle for Unity {Application.unityVersion}");
             return bundle;

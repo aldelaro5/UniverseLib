@@ -1,4 +1,4 @@
-﻿#if CPP
+﻿#if IL2CPP
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,19 +19,11 @@ using System.Text.RegularExpressions;
 using UniverseLib.Reflection;
 using System.Diagnostics;
 using UniverseLib.Runtime.Il2Cpp;
-#if INTEROP
 using Il2CppInterop.Runtime.InteropTypes;
 using Il2CppInterop.Runtime.InteropTypes.Arrays;
 using Il2CppInterop.Runtime;
 using Il2CppInterop.Runtime.Runtime;
 using Il2CppInterop.Common.Attributes;
-#endif
-#if UNHOLLOWER
-using UnhollowerBaseLib;
-using UnhollowerRuntimeLib;
-using UnhollowerBaseLib.Runtime;
-using UnhollowerBaseLib.Attributes;
-#endif
 
 namespace UniverseLib
 {
@@ -654,7 +646,7 @@ namespace UniverseLib
             try
             {
                 //Universe.Log($"Loading assembly '{Path.GetFileName(fullPath)}'");
-#if INTEROP
+#if IL2CPP
                 Assembly asm = Assembly.LoadFile(fullPath);
 #else
                 Assembly asm = Assembly.LoadFrom(fullPath);

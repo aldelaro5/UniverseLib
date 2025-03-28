@@ -1,0 +1,53 @@
+﻿<Project>
+    <PropertyGroup>
+        <BaseIntermediateOutputPath>$(SolutionDir)\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+    </PropertyGroup>
+    <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+    <PropertyGroup>
+        <TargetFramework>net6</TargetFramework>
+        <DefineConstants>IL2CPP</DefineConstants>
+    </PropertyGroup>
+    <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+
+    <ItemGroup>
+        <PackageReference Include="Il2CppInterop.Common" Version="1.4.6-ci.618" />
+        <PackageReference Include="Il2CppInterop.Runtime" Version="1.4.6-ci.618" />
+        <Reference Include="Il2Cppmscorlib">
+            <HintPath>..\lib\interop\Il2Cppmscorlib.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Il2CppSystem.Core">
+            <HintPath>..\lib\interop\Il2CppSystem.Core.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <HintPath>..\lib\interop\UnityEngine.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>..\lib\interop\UnityEngine.CoreModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+            <HintPath>..\lib\interop\UnityEngine.PhysicsModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule">
+            <HintPath>..\lib\interop\UnityEngine.TextRenderingModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+            <HintPath>..\lib\interop\UnityEngine.UI.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UIModule">
+            <HintPath>..\lib\interop\UnityEngine.UIModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule">
+            <HintPath>..\lib\interop\UnityEngine.IMGUIModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+</Project>

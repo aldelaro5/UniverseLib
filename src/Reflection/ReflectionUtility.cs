@@ -27,7 +27,7 @@ public class ReflectionUtility
     internal static void Init()
     {
         Instance =
-#if CPP
+#if IL2CPP
             new Il2CppReflection();
 #else
             new ReflectionUtility();
@@ -184,7 +184,7 @@ public class ReflectionUtility
         return type;
     }
 
-#if RELEASE_MONO
+#if MONO
     static readonly Dictionary<string, Type> shorthandToType = new Dictionary<string, Type>()
 #else
     static readonly IReadOnlyDictionary<string, Type> shorthandToType = new Dictionary<string, Type>()

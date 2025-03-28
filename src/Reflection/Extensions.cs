@@ -85,7 +85,7 @@ public static class ReflectionExtensions
                 return true;
         }
 
-#if CPP
+#if IL2CPP
         if (objA is Il2CppSystem.Object cppA && objB is Il2CppSystem.Object cppB
             && cppA.Pointer == cppB.Pointer)
             return true;
@@ -119,7 +119,7 @@ public static class ReflectionExtensions
         {
             if (e.InnerException == null)
                 break;
-#if CPP
+#if IL2CPP
             if (e.InnerException is System.Runtime.CompilerServices.RuntimeWrappedException)
                 break;
 #endif

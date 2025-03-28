@@ -1,0 +1,26 @@
+﻿<Project>
+    <PropertyGroup>
+        <BaseIntermediateOutputPath>$(SolutionDir)\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+    </PropertyGroup>
+    <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+    <PropertyGroup>
+        <TargetFramework>net35</TargetFramework>
+        <DefineConstants>MONO</DefineConstants>
+    </PropertyGroup>
+    <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+            <IncludeAssets>build</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="UnityEngine.Modules" Version="5.3.8" />
+        <Reference Include="UnityEngine.UI">
+            <HintPath>..\lib\mono\UnityEngine.UI_publicized.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+</Project>
