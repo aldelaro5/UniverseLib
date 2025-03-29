@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="UnityEngine.Modules" Version="5.3.8" />
+        <PackageReference Include="UnityEngine.Modules" Version="5.3.2" />
         <Reference Include="UnityEngine.UI">
             <HintPath>..\lib\mono\UnityEngine.UI_publicized.dll</HintPath>
             <Private>False</Private>
