@@ -74,10 +74,6 @@ public class ReflectionUtility
 
     static void SetupTypeCache()
     {
-        // For mono games, force load all 'Managed/' assemblies on startup.
-        if (Universe.Context == RuntimeContext.Mono)
-            ForceLoadManagedAssemblies();
-
         foreach (Assembly asm in AppDomain.CurrentDomain.GetAssemblies())
             CacheTypes(asm);
 
@@ -92,28 +88,6 @@ public class ReflectionUtility
         // Universe.Log($"\t - Assembly loaded: {args.LoadedAssembly.GetName().Name}");
 
         CacheTypes(args.LoadedAssembly);
-    }
-
-    static void ForceLoadManagedAssemblies()
-    {
-        string path = Path.Combine(Application.dataPath, "Managed");
-        if (Directory.Exists(path))
-        {
-            foreach (string dllPath in Directory.GetFiles(path, "*.dll"))
-            {
-                try
-                {
-                    // load and resolve the assembly's types.
-#if INTEROP
-                    Assembly asm = Assembly.LoadFile(dllPath);
-#else
-                    Assembly asm = Assembly.LoadFrom(dllPath);
-#endif
-                    asm.TryGetTypes();
-                }
-                catch { }
-            }
-        }
     }
 
     internal static void CacheTypes(Assembly asm)
