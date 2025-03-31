@@ -34,6 +34,7 @@ public class PanelManager
     protected internal static bool focusHandledThisFrame;
     protected internal static bool draggerHandledThisFrame;
     protected internal static bool wasAnyDragging;
+    protected internal bool wasAnyFocussed;
 
     /// <summary>Force any current Resizing to immediately end.</summary>
     public static void ForceEndResize()
@@ -215,6 +216,8 @@ public class PanelManager
 
                 break;
             }
+
+            wasAnyFocussed = clickedInAny;
         }
 
         if (!clickedInAny)
