@@ -10,7 +10,7 @@
         <AllowedReferenceRelatedFileExtensions>none</AllowedReferenceRelatedFileExtensions>
         <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
         <OutputPath>$(SolutionDir)\bin\$(Configuration)\$(MSBuildProjectName)\</OutputPath>
     </PropertyGroup>
 
@@ -34,18 +34,71 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="../src/**/*.cs" LinkBase="." />
+        <EmbeddedResource Include="../src/**/*.bundle" />
+    </ItemGroup>
+
+    <ItemGroup Condition="$(TargetFramework) == 'net35'">
+        <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+            <IncludeAssets>build</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup Condition="$(MSBuildProjectName.Contains('Mono'))">
+        <PackageReference Include="UnityEngine.Modules" Version="5.3.2" />
+        <Reference Include="UnityEngine.UI">
+            <HintPath>..\lib\mono\UnityEngine.UI_publicized.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup Condition="$(MSBuildProjectName.Contains('IL2CPP'))">
+        <PackageReference Include="Il2CppInterop.Common" Version="1.4.6-ci.618" />
+        <PackageReference Include="Il2CppInterop.Runtime" Version="1.4.6-ci.618" />
+        <Reference Include="Il2Cppmscorlib">
+            <HintPath>..\lib\interop\Il2Cppmscorlib.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="Il2CppSystem.Core">
+            <HintPath>..\lib\interop\Il2CppSystem.Core.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine">
+            <HintPath>..\lib\interop\UnityEngine.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>..\lib\interop\UnityEngine.CoreModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+            <HintPath>..\lib\interop\UnityEngine.PhysicsModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule">
+            <HintPath>..\lib\interop\UnityEngine.TextRenderingModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+            <HintPath>..\lib\interop\UnityEngine.UI.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UIModule">
+            <HintPath>..\lib\interop\UnityEngine.UIModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule">
+            <HintPath>..\lib\interop\UnityEngine.IMGUIModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="HarmonyX" Version="2.10.2" IncludeAssets="compile" />
         <PackageReference Include="Microsoft.Unity.Analyzers" Version="1.17.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="UniverseLib.Analyzers" Version="1.0.4" IncludeAssets="compile" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <EmbeddedResource Include="Resources\legacy.bundle" LogicalName="$(AssemblyName).Resources.legacy.bundle" />
-        <EmbeddedResource Include="Resources\legacy.5.3.4.bundle" LogicalName="$(AssemblyName).Resources.legacy.5.3.4.bundle" />
-        <EmbeddedResource Include="Resources\legacy.5.6.bundle" LogicalName="$(AssemblyName).Resources.legacy.5.6.bundle" />
-        <EmbeddedResource Include="Resources\modern.bundle" LogicalName="$(AssemblyName).Resources.modern.bundle" />
     </ItemGroup>
 </Project>

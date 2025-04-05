@@ -10,11 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniverseLib.Mono", "src\UniverseLib.Mono.csproj", "{D52667AC-37FC-413D-893C-03D6EF8FDFBD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniverseLib.Mono", "UniverseLib.Mono\UniverseLib.Mono.csproj", "{D52667AC-37FC-413D-893C-03D6EF8FDFBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniverseLib.IL2CPP", "src\UniverseLib.IL2CPP.csproj", "{9C2EE4D5-AFBD-42C5-8556-C12D7ED64B0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniverseLib.IL2CPP", "UniverseLib.IL2CPP\UniverseLib.IL2CPP.csproj", "{9C2EE4D5-AFBD-42C5-8556-C12D7ED64B0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniverseLib.MelonLoader.IL2CPP", "src\UniverseLib.MelonLoader.IL2CPP.csproj", "{39E00DE0-9108-49F3-AC7E-0D436592C519}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniverseLib.MelonLoader.IL2CPP", "UniverseLib.MelonLoader.IL2CPP\UniverseLib.MelonLoader.IL2CPP.csproj", "{39E00DE0-9108-49F3-AC7E-0D436592C519}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

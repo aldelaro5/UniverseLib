@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net6</TargetFramework>
+        <DefineConstants>IL2CPP;ML</DefineConstants>
+        <AssemblyName>UniverseLib.IL2CPP</AssemblyName>
+    </PropertyGroup>
+</Project>
